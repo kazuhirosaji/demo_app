@@ -39,4 +39,33 @@ $ bundle exec rake db:migrate
 ローカルWebサーバを起動する
 $ rails s
 
+ http://localhost:3000/
+
+http://localhost:3000/users 等と指定することでページが閲覧できる
+
+URI			アクション	備考
+/users		index	すべてのユーザーを一覧するページ
+/users/1	show	id=1のユーザーを表示するページ
+/users/new	new		新規ユーザーを作成するページ
+/users/1/edit	edit	id=1のユーザーを編集するページ
+
+2.2.2 MVCの挙動
+
+2.3Mircroposts リソース
+Usersと同様にMicropostのリソースも作成する
+
+$ rails generate scaffold Micropost content:string user_id:integer
+
+新しいデータモデルでデータベースを更新(Makeを行う)
+$ bundle exec rake db:migrate
+
+$ rails s でServer起動
+
+http://localhost:3000/microposts　で閲覧可能
+
+micropost.rb(Model)に以下の行を追加して、
+文字制限を行った。
+#  validates :content, :length => { :maximum => 10 }
+
+2.3.3ユーザーとマイクロポストをhas_manyで関連づける
 
