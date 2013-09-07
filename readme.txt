@@ -69,3 +69,11 @@ micropost.rb(Model)に以下の行を追加して、
 
 2.3.3ユーザーとマイクロポストをhas_manyで関連づける
 
+
+2.3.4継承の階層
+Railsのコントローラは必ずApplicationControllerを継承している
+
+herokuへコミット
+$ heroku create --stack cedar
+$ git push heroku master
+http://blooming-plains-8893.herokuapp.com/
